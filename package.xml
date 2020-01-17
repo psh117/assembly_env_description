@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>assembly_env_description</name>
+  <version>0.1.0</version>
+  <description>assembly_env_description contains URDF files and meshes of Franka Emika robots</description>
+  <maintainer email="psh117@snu.ac.kr">Suhan Park</maintainer>
+  <license>Apache 2.0</license>
+
+  <author>Suhan Park</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <exec_depend>xacro</exec_depend>
+</package>
