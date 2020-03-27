@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dyros_assembly_gripper">
+  <xacro:macro name="dyros_assembly_gripper" params="connected_to:='' ns:='' rpy:='0 0 0' xyz:='0 0 0' ">
+    <xacro:unless value="${connected_to == ''}">
+      <joint name="${ns}_hand_joint" type="fixed">
+        <parent link="${connected_to}"/>
+        <child link="${ns}_hand"/>
+        <origin xyz="${xyz}" rpy="${rpy}"/>
+      </joint>
+    </xacro:unless>
+    <link name="${ns}_hand">
+      <visual>
+        <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+        <geometry>
+          <mesh filename="package://assembly_env_description/meshes/gripper_base.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="blue">
+          <color rgba="0 0 0.8 1"/>
+        </material>
+      </visual>
+      <inertial>
+        <mass value="0.55"/>
+        <inertia ixx="0.0014362" ixy="0.000013" ixz="-0.0000278" iyy="0.00077" iyz="-0.0000897" izz="0.001039"/>
+      </inertial>
+    </link>
+    <joint name="${ns}_finger_joint" type="prismatic">
+      <parent link="${ns}_hand"/>
+      <child link="${ns}_finger"/>
+      <origin xyz="-0.01175 -0.0165 +0.0685" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="0.0" upper="0.15" effort="1000000" velocity="1000000"/>
+    </joint>
+    <link name="${ns}_finger">
+      <visual>
+        <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+        <geometry>
+          <mesh filename="package://assembly_env_description/meshes/gripper_moving_tip.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="green">
+          <color rgba="0 0.8 0 1"/>
+        </material>
+      </visual>
+    </link>
+  </xacro:macro>
+</robot>
