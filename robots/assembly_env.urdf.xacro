@@ -16,7 +16,7 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="1.0 0 0.5" rpy="0 0 0"/>
+      <origin xyz="1.0 0 0.5" rpy="0 0 0  "/>
       <geometry>
         <box size="2.4 1.2 1" />
       </geometry>
@@ -24,11 +24,14 @@
   </link>
   
   <!-- left arm with gripper -->
-  <xacro:panda_arm arm_id="panda_left" connected_to="base"  xyz="0 0.3 1" />
-  <xacro:dyros_assembly_gripper ns="panda_left" rpy="0 0 ${-pi/4}" connected_to="panda_left_link8" />
+  <!-- 007853982 -->
+  <xacro:panda_arm arm_id="panda_left" connected_to="base"  xyz="0 0.3 1" />  
+  <!-- <xacro:dyros_assembly_gripper ns="panda_left" rpy="0 0 ${-pi/4}" connected_to="panda_left_link8" /> -->
+  <xacro:hand ns="panda_left" rpy="0 0 ${-pi/4}" connected_to="panda_left_link8" />
   
   <!-- right arm with gripper -->
   <xacro:panda_arm arm_id="panda_right" connected_to="base"  xyz="0 -0.3 1" />
   <xacro:dyros_assembly_gripper ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" />
+  <!-- <xacro:hand ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" /> -->
   
 </robot>
