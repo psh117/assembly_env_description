@@ -27,16 +27,16 @@
   <!-- 007853982 -->
   <xacro:panda_arm arm_id="panda_left" connected_to="base"  xyz="0 0.3 1.006" safety_distance="0.02"/>  
   <!-- <xacro:dyros_assembly_gripper ns="panda_left" rpy="0 0 ${-pi/4}" connected_to="panda_left_link8" /> -->
-  <xacro:hand ns="panda_left" rpy="0 0 ${-pi/4}" connected_to="panda_left_link8" />
+  <xacro:hand ns="panda_left" rpy="0 0 ${-pi/4}" connected_to="panda_left_link8" safety_distance="0.015"/>
   
   <!-- right arm with gripper -->
-  <xacro:panda_arm arm_id="panda_right" connected_to="base"  xyz="0 -0.3 1.006" />
-  <xacro:dyros_assembly_gripper ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" safety_distance="0.02"/>
+  <xacro:panda_arm arm_id="panda_right" connected_to="base"  xyz="0 -0.3 1.006" safety_distance="0.02"/>
+  <xacro:dyros_assembly_gripper ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" />
   <!-- <xacro:hand ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" /> -->
 
    <!-- top arm with gripper -->
   <xacro:panda_arm arm_id="panda_top" connected_to="base"  xyz="1.525 0 1.006" rpy="0 0 ${pi}" safety_distance="0.02"/>
-  <xacro:hand ns="panda_top" rpy="0 0 ${-pi/4}" connected_to="panda_top_link8" /> 
+  <xacro:hand ns="panda_top" rpy="0 0 ${-pi/4}" connected_to="panda_top_link8" safety_distance="0.015"/> 
 
  
 </robot>
