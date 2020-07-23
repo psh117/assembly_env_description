@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+  <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro"/>
+  <xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
+  <xacro:include filename="dyros_assembly_gripper.xacro"/>
+  
+  <!-- box shaped table as base for the 3 Pandas -->
+  <link name="base">
+    <visual>
+      <origin xyz="1.0 0 0.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="2.4 1.2 1" />
+      </geometry>
+      <material name="White">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="1.0 0 0.5" rpy="0 0 0  "/>
+      <geometry>
+        <box size="2.4 1.2 1" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <!-- left arm with gripper -->
+  <xacro:panda_arm arm_id="panda_left" connected_to="base"  xyz="0 0.3 1" />
+  <xacro:dyros_assembly_gripper ns="panda_left" rpy="0 0 ${-pi/4}" connected_to="panda_left_link8" />
+  <!-- 007853982 -->
+  <!-- right arm with gripper -->
+  <xacro:panda_arm arm_id="panda_right" connected_to="base"  xyz="0 -0.3 1" />
+  <xacro:dyros_assembly_gripper ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" />
+  <!-- <xacro:hand ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" /> -->
+
+   <!-- top arm with gripper -->
+  <xacro:panda_arm arm_id="panda_top" connected_to="base"  xyz="1.6 0 1" />
+  <xacro:hand ns="panda_top" rpy="0 0 ${-pi/4}" connected_to="panda_top_link8" />
+
+ 
+</robot>
