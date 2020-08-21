@@ -3,6 +3,7 @@
   <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro"/>
   <xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
   <xacro:include filename="dyros_assembly_gripper.xacro"/>
+  <xacro:include filename="dyros_assembly_gripper2.xacro"/>
   
   <!-- box shaped table as base for the 3 Pandas -->
   <link name="base">
@@ -33,7 +34,7 @@
   <!-- right arm with gripper -->
   <xacro:panda_arm arm_id="panda_right" connected_to="base"  xyz="0 -0.3 1.006" 
 	sd0="0.002" sd1="0.002" sd2="0.002" sd3="0.002" sd4="0.002" sd5="0.002" sd6="0.001" sd7="0.001" sd8="0.005" cable="0.15"/>  
-  <xacro:dyros_assembly_gripper ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" />
+  <xacro:dyros_assembly_gripper2 ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" />
   <!-- <xacro:hand ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" /> -->
 
    <!-- top arm with gripper -->
