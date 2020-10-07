@@ -39,7 +39,7 @@
 
    <!-- top arm with gripper -->
   <xacro:panda_arm arm_id="panda_top" connected_to="base"  xyz="1.35 0.3 1.006" rpy="0 0 ${pi}"
-	sd0="0.0" sd1="0.0" sd2="0.0" sd3="0.0" sd4="0.0" sd5="0.0" sd6="0.0" sd7="0.0" sd8="0.0"/>  
+	sd0="0.01" sd1="0.01" sd2="0.01" sd3="0.01" sd4="0.01" sd5="0.01" sd6="0.01" sd7="0.01" sd8="0.001" cable="0.005"/>  
   <xacro:dyros_assembly_gripper2 ns="panda_top" rpy="0 0 ${-pi/4}" connected_to="panda_top_link8" />
   <!-- <xacro:hand ns="panda_top" rpy="0 0 ${-pi/4}" connected_to="panda_top_link8" safety_distance="0.0"/> -->
 
