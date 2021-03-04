@@ -19,9 +19,11 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+        <origin xyz="0.017 0 0.029" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://assembly_env_description/meshes/gripper2_base.stl" scale="0.001 0.001 0.001"/>
+
+          <box size="0.125 0.21 0.06"/>
+
         </geometry>
       </collision>
       <inertial>
@@ -48,9 +50,11 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+        <origin xyz="0 0 0.01" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://assembly_env_description/meshes/gripper2_tip.stl" scale="0.001 0.001 0.001"/>
+
+          <box size="0.08 0.0185 0.035"/>
+
         </geometry>
       </collision>
     </link>
@@ -73,9 +77,11 @@
         </material>
       </visual>
       <collision>
-        <origin xyz="0 0 0" rpy="-1.57 0 -1.57"/>
+        <origin xyz="0 0 0.01" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://assembly_env_description/meshes/gripper2_tip.stl" scale="0.001 0.001 0.001"/>
+
+          <box size="0.08 0.0185 0.035"/>
+
         </geometry>
       </collision>
     </link>
