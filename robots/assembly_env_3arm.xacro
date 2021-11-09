@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+  <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro"/>
+  <xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
+  <xacro:include filename="dyros_assembly_gripper.xacro"/>
+  <xacro:include filename="dyros_assembly_gripper2.xacro"/>
+  
+  <!-- box shaped table as base for the 3 Pandas -->
+  <link name="base">
+    <visual>
+      <origin xyz="0.4 0 0.5" rpy="0 0 0"/>
+      <geometry>
+        <box size="2.7 2.7 1" />
+      </geometry>
+      <material name="White">
+        <color rgba="1.0 1.0 1.0 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.4 0 0.5" rpy="0 0 0  "/>
+      <geometry>
+        <box size="2.7 2.7 1" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <!-- right arm with gripper -->
+  <xacro:panda_arm arm_id="panda_right" connected_to="base"  xyz="0 -0.3 1.006" 
+  sd0="0.01" sd1="0.01" sd2="0.01" sd3="0.01" sd4="0.01" sd5="0.01" sd6="0.01" sd7="0.01" sd8="0.001" cable="0.15"
+a1="-0.00153055068483914" d1="-0.000772485919009139" theta1="-0.00374187596482555" alpha1="-0.00183369895482027" 
+a2="0.000163834922530543" d2="-0.000212890734425727" theta2="-0.0041768339596184" alpha2="0.00292223805919776" 
+a3="-2.60271767179549e-05" d3="-0.00100930869860036" theta3="0.00208915153420725" alpha3="-0.00362801030623702" 
+a4="0.0002126348171224" d4="0.00108679894872676" theta4="9.81965015663654e-05" alpha4="0.00292912798333623" 
+a5="-0.00136529072609946" d5="-5.62799006356164e-05" theta5="0.0139799357258803" alpha5="-0.00122374898174726" 
+a6="-0.000502587880406569" d6="0.000336192838117574" theta6="-0.0139808833528828" alpha6="-0.00268675457630875" 
+a7="-0.00104647166032287" d7="0.000135297170834114" theta7="0.00498364620994882" alpha7="0.000349775306996936" />  
+  <xacro:dyros_assembly_gripper2 ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" />
+  <!-- <xacro:hand ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" /> -->
+
+  <!-- right arm with gripper -->
+  <xacro:panda_arm arm_id="panda_right" connected_to="base"  xyz="0 -0.3 1.006" 
+  sd0="0.01" sd1="0.01" sd2="0.01" sd3="0.01" sd4="0.01" sd5="0.01" sd6="0.01" sd7="0.01" sd8="0.001" cable="0.15"
+a1="-0.00153055068483914" d1="-0.000772485919009139" theta1="-0.00374187596482555" alpha1="-0.00183369895482027" 
+a2="0.000163834922530543" d2="-0.000212890734425727" theta2="-0.0041768339596184" alpha2="0.00292223805919776" 
+a3="-2.60271767179549e-05" d3="-0.00100930869860036" theta3="0.00208915153420725" alpha3="-0.00362801030623702" 
+a4="0.0002126348171224" d4="0.00108679894872676" theta4="9.81965015663654e-05" alpha4="0.00292912798333623" 
+a5="-0.00136529072609946" d5="-5.62799006356164e-05" theta5="0.0139799357258803" alpha5="-0.00122374898174726" 
+a6="-0.000502587880406569" d6="0.000336192838117574" theta6="-0.0139808833528828" alpha6="-0.00268675457630875" 
+a7="-0.00104647166032287" d7="0.000135297170834114" theta7="0.00498364620994882" alpha7="0.000349775306996936" />  
+  <xacro:dyros_assembly_gripper2 ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" />
+  <!-- <xacro:hand ns="panda_right" rpy="0 0 ${-pi/4}" connected_to="panda_right_link8" /> -->
+
+   <!-- top arm with gripper -->
+  <xacro:panda_arm arm_id="panda_top" connected_to="base"  xyz="1.35 0.3 1.006" rpy="0 0 ${pi}"
+  sd0="0.01" sd1="0.01" sd2="0.01" sd3="0.01" sd4="0.01" sd5="0.005" sd6="0.005" sd7="0.01" sd8="0.001" cable="0.005"
+a1="-0.000171539356569936" d1="0.000591551783574421" theta1="0.00119525002639617" alpha1="-0.00650097874689066" 
+a2="-0.000330274824097498" d2="-0.000124214443868683" theta2="7.10962210595555e-05" alpha2="0.00166835357174836" 
+a3="-0.00027921463294522" d3="-0.000683991542242173" theta3="0.00203760570771006" alpha3="-0.0018819778569208" 
+a4="-0.000355247972007034" d4="0.000891508331427601" theta4="-0.00513318787489872" alpha4="0.000168196477584221" 
+a5="0.000190817101859644" d5="-0.000635118518697479" theta5="0.00445732420517835" alpha5="-0.00167223312645046" 
+a6="-0.000244350284995939" d6="-0.000209543585115151" theta6="0.000118913154576129" alpha6="-0.00356076901549127" 
+a7="-0.000484192538997231" d7="4.41640702632187e-05" theta7="-0.0155483388661319" alpha7="0.000602582057747216" />  
+  <xacro:dyros_assembly_gripper2 ns="panda_top" rpy="0 0 ${-pi/4}" connected_to="panda_top_link8" />
+  <!-- <xacro:hand ns="panda_top" rpy="0 0 ${-pi/4}" connected_to="panda_top_link8" safety_distance="0.0"/> -->
+
+ 
+</robot>
