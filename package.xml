@@ -9,6 +9,7 @@
   <author>Suhan Park</author>
 
   <buildtool_depend>catkin</buildtool_depend>
+  <depend>calibrated_franka_description</depend>
 
   <exec_depend>xacro</exec_depend>
 </package>
