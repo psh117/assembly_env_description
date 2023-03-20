@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dyros_assembly_gripper2">
-  <xacro:macro name="dyros_assembly_gripper2" params="connected_to:='' ns:='' rpy:='0 0 0' xyz:='0 0 0' ">
+  <xacro:macro name="dyros_assembly_gripper2" params="connected_to:='' ns:='' rpy:='0 0 0' xyz:='0 0 0' tcp_xyz:='0 0 0.0825' tcp_rpy:='0 0 0' ">
     <xacro:unless value="${connected_to == ''}">
       <joint name="${ns}_hand_joint" type="fixed">
         <parent link="${connected_to}"/>
@@ -31,6 +31,14 @@
         <inertia ixx="0.0014362" ixy="0.000013" ixz="-0.0000278" iyy="0.00077" iyz="-0.0000000" izz="0.001039"/>
       </inertial>
     </link>      
+
+    <!-- Define the hand_tcp frame -->
+    <link name="${ns}_hand_tcp" />
+    <joint name="${ns}_hand_tcp_joint" type="fixed">
+      <origin xyz="${tcp_xyz}" rpy="${tcp_rpy}" />
+      <parent link="${ns}_hand" />
+      <child link="${ns}_hand_tcp" />
+    </joint>
 
     <joint name="${ns}_finger_right_joint" type="prismatic">
       <parent link="${ns}_hand"/>
